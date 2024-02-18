@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct Cups_view: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading){
+            Text("Today's Water Intake")
+                .foregroundColor(.gray)
+                .padding()
+            Text("")
+        }
     }
 }
 

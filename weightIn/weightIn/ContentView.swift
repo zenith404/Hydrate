@@ -81,6 +81,7 @@ struct weightIn: View {
         }
         .padding(.top, 150)
     }
+    
 }
 
 //should find a way to remmove padding

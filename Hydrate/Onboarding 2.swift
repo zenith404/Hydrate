@@ -5,7 +5,7 @@ import SwiftUI
 struct Onboarding_2: View {
 //    let litersOfWaterNeeded: Double = 2.4
 //    let cupsOfWaterNeeded: Int = 12
-    @State var resultL : Double
+//    @State var resultL : Double
     
     @State var resultLiters: String
     @State var resultCups: String
@@ -15,6 +15,7 @@ struct Onboarding_2: View {
     
     
     var body: some View {
+        
         Spacer().frame(height:120)
         VStack(alignment:.leading){
             Text("The needed water intake")
@@ -89,9 +90,7 @@ struct Onboarding_2: View {
             }
             Spacer().frame(height:150)
             
-            Button(){
-                // Action
-            } label: {
+           NavigationLink(destination: Onboarding_3()){
                 HStack{
                     Spacer()
                     Text("Set the notification")
@@ -104,7 +103,9 @@ struct Onboarding_2: View {
                 .foregroundColor(.white)
             }
             .padding()
+            
         }
+        
     }
     
 }
@@ -137,14 +138,14 @@ struct WaterMetricView: View {
 //        .cornerRadius(8)
     }
 }
-func waterNeedsCalculator(weight: Double)-> Double{
-    var result: Double
-    result = weight * 0.03
-    return result
-}
+//func waterNeedsCalculator(weight: Double)-> Double{
+//    var result: Double
+//    result = weight * 0.03
+//    return result
+//}
 
 #Preview {
-    Onboarding_2()
+    Onboarding_2(resultLiters: "", resultCups: "")
     }
 
 

@@ -9,9 +9,11 @@ import SwiftUI
 
 struct weightIn: View {
     @State private var weight: String = ""
+    @State private var liters: String = "0.0"
     
     var body: some View {
-        //        NavigationLink( destination : Onboarding_2(weight))
+ 
+          
         NavigationView{
             VStack(spacing: 30) {
                 
@@ -51,7 +53,7 @@ struct weightIn: View {
                         
                         HStack{ //this should be [weight kg] the space is too far
                             TextField("weight", text: $weight)
-                                . keyboardType(.numberPad)
+                                .keyboardType(.numberPad)
                                 .padding(.horizontal)
                             
                             
@@ -67,27 +69,56 @@ struct weightIn: View {
                 
                 
                 Spacer()
-                
-                Button(action: {
-                    // action to go the notification View
-                }) {
-                    Text("Calculate")
-                        .font(Font.custom("SF Pro", size: 17))
-                        .foregroundColor(weight.isEmpty ? Color(.gray) : .white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(weight.isEmpty ? Color("SecondaryText") : Color(.accent))
-                        .cornerRadius(10)
-                }
+//                
+//                Button(action: {
+//                    // action to go the notification View
+//                }) {
+//                    
+//            }
+           
+            NavigationLink(destination: Onboarding_2(resultLiters: calculateLiters(), resultCups: calculateCups())) {
+                   Text("Calculate")
+                .font(Font.custom("SF Pro", size: 17))
+                .foregroundColor(weight.isEmpty ? Color(.gray) : .white)
                 .padding()
-                .padding(.bottom, 70)
-            }
+                .frame(maxWidth: .infinity)
+                .background(weight.isEmpty ? Color("SecondaryText") : Color(.accent))
+                .cornerRadius(10)
+        }
+        .padding()
+        .padding(.bottom, 70)
+                
+                  }
             .padding(.top, 150)
         }
+        .onChange(of: weight) { _ in
+                    liters = calculateLiters()
+                }
         
     }
+    func calculateLiters() -> String {
+          // Convert weight to Double and calculate liters
+          if let weightInKg = Double(weight) {
+              let liters = weightInKg * 0.03
+              return String(format: "%.2f", liters) // Format the result if necessary
+          } else {
+              return "0.0" // Default value if weight cannot be parsed
+          }
+      }
+      
+      func calculateCups() -> String {
+          // Convert liters to Double and calculate cups
+          if let litersValue = Double(liters) {
+              let cups = litersValue * 0.24
+              return String(format: "%.2f", cups) // Convert cups to string
+          } else {
+              return "0" // Default value if liters cannot be parsed
+          }
+      }
     
 }
+
+
 //should find a way to remmove padding
 #Preview {
     weightIn()

@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C0BDA2B813CF100443343 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0BD92B813CF100443343 /* Notifications.swift */; };
+		2869ABF72B7B725000BEF20A /* Onboarding 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABF62B7B725000BEF20A /* Onboarding 2.swift */; };
+		2869ABFB2B7D399B00BEF20A /* Onboarding 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */; };
+		28A03ACF2B7E7A0F004C7FA7 /* Cups view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */; };
 		28CA29FC2B7B610E00CA1F63 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */; };
-		28CA29FE2B7B610E00CA1F63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA29FD2B7B610E00CA1F63 /* ContentView.swift */; };
+		28CA29FE2B7B610E00CA1F63 /* weightIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA29FD2B7B610E00CA1F63 /* weightIn.swift */; };
 		28CA2A002B7B611000CA1F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CA29FF2B7B611000CA1F63 /* Assets.xcassets */; };
 		28CA2A032B7B611000CA1F63 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CA2A022B7B611000CA1F63 /* Preview Assets.xcassets */; };
 		28CA2A0D2B7B611000CA1F63 /* HydrateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA2A0C2B7B611000CA1F63 /* HydrateTests.swift */; };
@@ -77,9 +81,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		280C0BD92B813CF100443343 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2869ABF62B7B725000BEF20A /* Onboarding 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 2.swift"; sourceTree = "<group>"; };
+		2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 3.swift"; sourceTree = "<group>"; };
+		28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cups view.swift"; sourceTree = "<group>"; };
 		28CA29F82B7B610E00CA1F63 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
-		28CA29FD2B7B610E00CA1F63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28CA29FD2B7B610E00CA1F63 /* weightIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightIn.swift; sourceTree = "<group>"; };
 		28CA29FF2B7B611000CA1F63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28CA2A022B7B611000CA1F63 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28CA2A082B7B611000CA1F63 /* HydrateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HydrateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +183,11 @@
 			isa = PBXGroup;
 			children = (
 				28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */,
-				28CA29FD2B7B610E00CA1F63 /* ContentView.swift */,
+				28CA29FD2B7B610E00CA1F63 /* weightIn.swift */,
+				2869ABF62B7B725000BEF20A /* Onboarding 2.swift */,
+				2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */,
+				280C0BD92B813CF100443343 /* Notifications.swift */,
+				28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */,
 				28CA29FF2B7B611000CA1F63 /* Assets.xcassets */,
 				28CA2A012B7B611000CA1F63 /* Preview Content */,
 			);
@@ -397,6 +409,9 @@
 				Base,
 			);
 			mainGroup = 28CA29EF2B7B610E00CA1F63;
+			packageReferences = (
+				2869ABFC2B7DFFD800BEF20A /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 28CA29F92B7B610E00CA1F63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,8 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CA29FE2B7B610E00CA1F63 /* ContentView.swift in Sources */,
+				280C0BDA2B813CF100443343 /* Notifications.swift in Sources */,
+				28A03ACF2B7E7A0F004C7FA7 /* Cups view.swift in Sources */,
+				28CA29FE2B7B610E00CA1F63 /* weightIn.swift in Sources */,
 				28CA29FC2B7B610E00CA1F63 /* HydrateApp.swift in Sources */,
+				2869ABF72B7B725000BEF20A /* Onboarding 2.swift in Sources */,
+				2869ABFB2B7D399B00BEF20A /* Onboarding 3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1040,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2869ABFC2B7DFFD800BEF20A /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 28CA29F02B7B610E00CA1F63 /* Project object */;
 }
