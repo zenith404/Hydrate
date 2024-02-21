@@ -6,52 +6,178 @@
 //
 import SwiftUI
 
-struct Cups_view: View {
-    @State var resultCups: [Int] = []
-    @State var drunkCups: [Int] = []
-    @State private var litersValue: Double = 0.0
-    @State private var cups: Double = 0.0
-    
+class ResultCups: ObservableObject {
+    @AppStorage("userWeight") private var userWeight: Double = 0.0
+    @Published var clickCount: Int = 0
+    var result: Double {
+        Double(clickCount)
+    }
+}
+
+struct CupsView: View {
+    @AppStorage("userWeight") private var userWeight: Double = 0.0
+    @StateObject var resultCups = ResultCups()
+    @State private var filledStates = Array(repeating: false, count: 20)
+
     var body: some View {
         VStack(alignment: .leading) {
-            Spacer()
             Text("Today's Water Intake")
                 .foregroundColor(.gray)
-            Text("\(drunkCups.count) cups / \(resultCups.count) cups")
+            Text("\(Int(resultCups.result)) cups /  cups")
                 .font(.title)
                 .fontWeight(.bold)
-            Spacer()
-            
-            VStack(spacing: 60){
-                ForEach(0..<4) { row in
-                    HStack(spacing: 20){
-                        ForEach(0..<resultCups.count, id: \.self)  { i in
-                            Image(drunkCups.contains(i) ? "fill" : "empty")
-                                .font(.title)
-                                .foregroundColor(.blue)
-                                .onTapGesture {
-                                    toggleDrunkCup(index: i)
-                                }
+
+            VStack(spacing: 40) {
+                ForEach(0..<5) { row in
+                    HStack(spacing: 55) {
+                        ForEach(0..<4) { column in
+                            DropZoneView(filledState: $filledStates[row * 4 + column], clickCount: $resultCups.clickCount)
                         }
                     }
                 }
             }
-            Spacer()
+            .frame(maxHeight: .infinity)
+            .padding(.top, 20)
+        }
+        .frame(width: 360, height: 700)
+        .environmentObject(resultCups)
+    }
+}
+
+struct DropZoneView: View {
+    @Binding var filledState: Bool
+    @Binding var clickCount: Int
+
+    var body: some View {
+        VStack {
+            Button(action: {
+                filledState.toggle()
+                if filledState {
+                    incrementClickCount()
+                } else {
+                    decrementClickCount()
+                }
+            }) {
+                Image(filledState ? "fill" : "empty")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 40, height: 40)
+            }
+            Text("1 cup")
+                .font(.caption)
+                .foregroundColor(.gray)
         }
     }
-    
-    func toggleDrunkCup(index: Int) {
-        if let idx = drunkCups.firstIndex(of: index) {
-            drunkCups.remove(at: idx)
-        } else {
-            drunkCups.append(index)
-        }
+
+    private func incrementClickCount() {
+        clickCount += 1
+    }
+
+    private func decrementClickCount() {
+        clickCount -= 1
     }
 }
 
 // Preview
-struct Cups_view_Previews: PreviewProvider {
+struct CupView_Previews: PreviewProvider {
     static var previews: some View {
-        Cups_view(resultCups:[], drunkCups: [])
+        CupsView()
     }
 }
+
+
+
+/*
+ 
+ import SwiftUI
+
+ class ResultStore: ObservableObject {
+     @Published var clickCount: Int = 0
+     var result: Double {
+         Double(clickCount)
+     }
+ }
+ struct Cups: View {
+     @State private var filledStates = Array(repeating: false, count: 20)
+     @StateObject var resultStore = ResultStore()
+     
+     var body: some View {
+         VStack(spacing: 30) {
+             Text("Today's Water Intake")
+                 .font(.body)
+                 .foregroundColor(Color.gray)
+             
+                 .padding(.trailing, 170.0)
+                 .padding(.bottom, -20.0)
+                
+             Text("\(Int(resultStore.result)) cups / 20 cups")
+                 .font(.title)
+                 .fontWeight(.bold)
+                 .foregroundColor(.black)
+                 .padding(.trailing, 110.0)
+                 .padding(.bottom, 40.0)
+             
+              
+               
+                
+               
+             ForEach(0..<5) { row in
+                 HStack(spacing: 55) {
+                     ForEach(0..<4) { column in
+                         DropZoneView(filledState: $filledStates[row * 4 + column], clickCount: $resultStore.clickCount)                    }
+                 }
+             }
+             
+         }
+         .padding()
+         .environmentObject(resultStore)
+         .padding(.bottom, 30.0)
+         .navigationBarBackButtonHidden(true)
+     }
+
+ }
+
+ struct DropZoneView: View {
+     @Binding var filledState: Bool
+     @Binding var clickCount: Int
+
+     var body: some View {
+         VStack {
+             Button(action: {
+                 filledState.toggle()
+                 if filledState {
+                     incrementClickCount()
+                 } else {
+                     decrementClickCount()
+                 }
+             })  {
+                    Image(filledState ? "drop" : "drop2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 40, height: 40)
+                     
+                }
+             Text("1 cup")
+                 .font(.caption)
+                 .foregroundColor(.gray)
+                 
+            }
+        }
+        
+     private func incrementClickCount() {
+         clickCount += 1
+     }
+     
+     private func decrementClickCount() {
+         clickCount -= 1
+     }
+
+
+ }
+
+ struct Cups_Previews: PreviewProvider {
+     static var previews: some View {
+         Cups()
+     }
+ }
+ */

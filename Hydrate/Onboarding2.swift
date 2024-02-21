@@ -1,23 +1,16 @@
 
-
 import SwiftUI
 
-struct Onboarding_2: View {
-//    let litersOfWaterNeeded: Double = 2.4
-//    let cupsOfWaterNeeded: Int = 12
-//    @State var resultL : Double
-    
+struct Onboarding2: View {
+    @AppStorage("userWeight") private var userWeight: Double = 0.0
     @State var resultLiters: String
     @State var resultCups: String
-    @State var mugs  = false
-    @State var liters  = false
-
-    
+    @State var mugs = false
+    @State var liters = false
     
     var body: some View {
-        
-        Spacer().frame(height:120)
-        VStack(alignment:.leading){
+        Spacer().frame(height: 120)
+        VStack(alignment: .leading) {
             Text("The needed water intake")
                 .font(.title2)
                 .fontWeight(.semibold)
@@ -29,69 +22,62 @@ struct Onboarding_2: View {
                 .frame(width: 355, height: 66, alignment: .topLeading)
                 .padding(.leading)
             
-            HStack(){
-                ZStack{
+            HStack() {
+                ZStack {
                     Button(action: {
                         self.mugs.toggle()
                     }, label: {
-                        if !mugs{
-                            VStack{
+                        if !mugs {
+                            VStack {
                                 Image("cups")
                                 WaterMetricView(metricValue: "\(resultCups)", metricUnit: "cups", imageName: "cups")
-                            }.frame(width: 171, height: 159.9353)
-                                .foregroundColor(.black)
-                                .background(Color(Color.square))
-                                .cornerRadius(8.04706)
-                        }else {
-                            VStack{
+                            }
+                            .frame(width: 171, height: 159.9353)
+                            .foregroundColor(.black)
+                            .background(Color(Color.square))
+                            .cornerRadius(8.04706)
+                        } else {
+                            VStack {
                                 Image("cups")
                                 WaterMetricView(metricValue: "\(resultCups)", metricUnit: "cups", imageName: "cups")
-                            }.frame(width: 171, height: 159.9353)
-                                .foregroundColor(.white)
-                                .background(Color(Color.accent))
-                                .cornerRadius(8.04706)
-                               
-                
-                        
+                            }
+                            .frame(width: 171, height: 159.9353)
+                            .foregroundColor(.white)
+                            .background(Color(Color.accent))
+                            .cornerRadius(8.04706)
                         }
-                        
                     })
-//
                 }
                 .padding()
-                Spacer().frame(width:0)
-                ZStack{
-//
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        if !liters{
-                            VStack{
-                                Image("Bottle")
-                                WaterMetricView(metricValue:  "\(resultLiters)", metricUnit: "L", imageName: "Bottle")
-                                
-                            }.frame(width: 171, height: 159.9353)
-                                .foregroundColor(.black)
-                                .background(Color(Color.square))
-                                .cornerRadius(8.04706)
-                        }
-                        else {
-                            VStack{
+                Spacer().frame(width: 0)
+                ZStack {
+                    Button(action: {}, label: {
+                        if !liters {
+                            VStack {
                                 Image("Bottle")
                                 WaterMetricView(metricValue: "\(resultLiters)", metricUnit: "L", imageName: "Bottle")
-                            }.frame(width: 171, height: 159.9353)
-                                .foregroundColor(.black)
-                                .background(Color(Color.red))
-                                .cornerRadius(8.04706)
-                               
+                            }
+                            .frame(width: 171, height: 159.9353)
+                            .foregroundColor(.black)
+                            .background(Color(Color.square))
+                            .cornerRadius(8.04706)
+                        } else {
+                            VStack {
+                                Image("Bottle")
+                                WaterMetricView(metricValue: "\(resultLiters)", metricUnit: "L", imageName: "Bottle")
+                            }
+                            .frame(width: 171, height: 159.9353)
+                            .foregroundColor(.black)
+                            .background(Color(Color.red))
+                            .cornerRadius(8.04706)
                         }
-                        
                     })
-                  
                 }
             }
-            Spacer().frame(height:150)
+            Spacer().frame(height: 150)
             
-           NavigationLink(destination: Onboarding_3()){
-                HStack{
+            NavigationLink(destination: Onboarding3()) {
+                HStack {
                     Spacer()
                     Text("Set the notification")
                     Spacer()
@@ -103,11 +89,8 @@ struct Onboarding_2: View {
                 .foregroundColor(.white)
             }
             .padding()
-            
         }
-        
     }
-    
 }
 
 struct WaterMetricView: View {
@@ -117,13 +100,7 @@ struct WaterMetricView: View {
     
     var body: some View {
         VStack {
-//            Image(systemName: imageName)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 50, height: 50)
-//                .foregroundColor(Color.blue)
-            
-            HStack(spacing:5){
+            HStack(spacing: 5) {
                 Text(metricValue)
                     .font(.title2)
                     .bold()
@@ -132,24 +109,13 @@ struct WaterMetricView: View {
                     .font(.caption)
             }
         }
-//        .padding()
-//        .frame(minWidth: 0, maxWidth: .infinity)
-//        .background(Color(.systemGray6))
-//        .cornerRadius(8)
     }
 }
-//func waterNeedsCalculator(weight: Double)-> Double{
-//    var result: Double
-//    result = weight * 0.03
-//    return result
-//}
 
-#Preview {
-    Onboarding_2(resultLiters: "", resultCups: "")
+struct Onboarding2_Previews: PreviewProvider {
+    static var previews: some View {
+        Onboarding2(resultLiters: "", resultCups: "")
     }
+}
 
-
-
-
-              
         

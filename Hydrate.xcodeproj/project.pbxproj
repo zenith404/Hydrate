@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280C0BDA2B813CF100443343 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0BD92B813CF100443343 /* Notifications.swift */; };
-		2869ABF72B7B725000BEF20A /* Onboarding 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABF62B7B725000BEF20A /* Onboarding 2.swift */; };
-		2869ABFB2B7D399B00BEF20A /* Onboarding 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */; };
-		28A03ACF2B7E7A0F004C7FA7 /* Cups view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */; };
+		2869ABF72B7B725000BEF20A /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABF62B7B725000BEF20A /* Onboarding2.swift */; };
+		2869ABFB2B7D399B00BEF20A /* Onboarding3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2869ABFA2B7D399B00BEF20A /* Onboarding3.swift */; };
+		28A03ACF2B7E7A0F004C7FA7 /* CupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A03ACE2B7E7A0F004C7FA7 /* CupsView.swift */; };
+		28BE34CE2B83372300D63FCB /* TwoPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE34CD2B83372300D63FCB /* TwoPages.swift */; };
 		28CA29FC2B7B610E00CA1F63 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */; };
 		28CA29FE2B7B610E00CA1F63 /* weightIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA29FD2B7B610E00CA1F63 /* weightIn.swift */; };
 		28CA2A002B7B611000CA1F63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CA29FF2B7B611000CA1F63 /* Assets.xcassets */; };
@@ -26,6 +26,10 @@
 		28CA2A352B7B611100CA1F63 /* Hydrate_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA2A342B7B611100CA1F63 /* Hydrate_Watch_AppTests.swift */; };
 		28CA2A3F2B7B611100CA1F63 /* Hydrate_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA2A3E2B7B611100CA1F63 /* Hydrate_Watch_AppUITests.swift */; };
 		28CA2A412B7B611100CA1F63 /* Hydrate_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CA2A402B7B611100CA1F63 /* Hydrate_Watch_AppUITestsLaunchTests.swift */; };
+		A9AD06882B83F63900B4AF9B /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD06872B83F63900B4AF9B /* user.swift */; };
+		A9AD751A2B847F0400922335 /* watchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD75192B847F0400922335 /* watchview.swift */; };
+		A9AD75562B85479900922335 /* cupwatchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD75552B85479900922335 /* cupwatchview.swift */; };
+		A9C074272B840138007EE31C /* trackk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C074262B840138007EE31C /* trackk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,10 +85,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		280C0BD92B813CF100443343 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		2869ABF62B7B725000BEF20A /* Onboarding 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 2.swift"; sourceTree = "<group>"; };
-		2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding 3.swift"; sourceTree = "<group>"; };
-		28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cups view.swift"; sourceTree = "<group>"; };
+		2869ABF62B7B725000BEF20A /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
+		2869ABFA2B7D399B00BEF20A /* Onboarding3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3.swift; sourceTree = "<group>"; };
+		28A03ACE2B7E7A0F004C7FA7 /* CupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupsView.swift; sourceTree = "<group>"; };
+		28BE34CD2B83372300D63FCB /* TwoPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPages.swift; sourceTree = "<group>"; };
 		28CA29F82B7B610E00CA1F63 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
 		28CA29FD2B7B610E00CA1F63 /* weightIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightIn.swift; sourceTree = "<group>"; };
@@ -105,6 +109,10 @@
 		28CA2A3A2B7B611100CA1F63 /* Hydrate Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hydrate Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CA2A3E2B7B611100CA1F63 /* Hydrate_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hydrate_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		28CA2A402B7B611100CA1F63 /* Hydrate_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hydrate_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A9AD06872B83F63900B4AF9B /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		A9AD75192B847F0400922335 /* watchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchview.swift; sourceTree = "<group>"; };
+		A9AD75552B85479900922335 /* cupwatchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = cupwatchview.swift; path = Hydrate/cupwatchview.swift; sourceTree = SOURCE_ROOT; };
+		A9C074262B840138007EE31C /* trackk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +191,13 @@
 			isa = PBXGroup;
 			children = (
 				28CA29FB2B7B610E00CA1F63 /* HydrateApp.swift */,
+				A9AD06872B83F63900B4AF9B /* user.swift */,
 				28CA29FD2B7B610E00CA1F63 /* weightIn.swift */,
-				2869ABF62B7B725000BEF20A /* Onboarding 2.swift */,
-				2869ABFA2B7D399B00BEF20A /* Onboarding 3.swift */,
-				280C0BD92B813CF100443343 /* Notifications.swift */,
-				28A03ACE2B7E7A0F004C7FA7 /* Cups view.swift */,
+				2869ABF62B7B725000BEF20A /* Onboarding2.swift */,
+				2869ABFA2B7D399B00BEF20A /* Onboarding3.swift */,
+				28BE34CD2B83372300D63FCB /* TwoPages.swift */,
+				A9C074262B840138007EE31C /* trackk.swift */,
+				28A03ACE2B7E7A0F004C7FA7 /* CupsView.swift */,
 				28CA29FF2B7B611000CA1F63 /* Assets.xcassets */,
 				28CA2A012B7B611000CA1F63 /* Preview Content */,
 			);
@@ -224,6 +234,8 @@
 			children = (
 				28CA2A232B7B611000CA1F63 /* HydrateApp.swift */,
 				28CA2A252B7B611000CA1F63 /* ContentView.swift */,
+				A9AD75192B847F0400922335 /* watchview.swift */,
+				A9AD75552B85479900922335 /* cupwatchview.swift */,
 				28CA2A272B7B611100CA1F63 /* Assets.xcassets */,
 				28CA2A292B7B611100CA1F63 /* Preview Content */,
 			);
@@ -480,12 +492,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				280C0BDA2B813CF100443343 /* Notifications.swift in Sources */,
-				28A03ACF2B7E7A0F004C7FA7 /* Cups view.swift in Sources */,
+				28A03ACF2B7E7A0F004C7FA7 /* CupsView.swift in Sources */,
+				A9AD06882B83F63900B4AF9B /* user.swift in Sources */,
 				28CA29FE2B7B610E00CA1F63 /* weightIn.swift in Sources */,
 				28CA29FC2B7B610E00CA1F63 /* HydrateApp.swift in Sources */,
-				2869ABF72B7B725000BEF20A /* Onboarding 2.swift in Sources */,
-				2869ABFB2B7D399B00BEF20A /* Onboarding 3.swift in Sources */,
+				2869ABF72B7B725000BEF20A /* Onboarding2.swift in Sources */,
+				2869ABFB2B7D399B00BEF20A /* Onboarding3.swift in Sources */,
+				28BE34CE2B83372300D63FCB /* TwoPages.swift in Sources */,
+				A9C074272B840138007EE31C /* trackk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +524,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AD751A2B847F0400922335 /* watchview.swift in Sources */,
 				28CA2A262B7B611000CA1F63 /* ContentView.swift in Sources */,
+				A9AD75562B85479900922335 /* cupwatchview.swift in Sources */,
 				28CA2A242B7B611000CA1F63 /* HydrateApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydrate Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 3QXPN2Z5AG;
+				DEVELOPMENT_TEAM = 5U4L7T7WUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydrate;
@@ -715,7 +731,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydrate Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 3QXPN2Z5AG;
+				DEVELOPMENT_TEAM = 5U4L7T7WUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydrate;
@@ -747,7 +763,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydrate/Preview Content\"";
-				DEVELOPMENT_TEAM = 3QXPN2Z5AG;
+				DEVELOPMENT_TEAM = 5U4L7T7WUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydrate;
@@ -780,7 +796,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hydrate/Preview Content\"";
-				DEVELOPMENT_TEAM = 3QXPN2Z5AG;
+				DEVELOPMENT_TEAM = 5U4L7T7WUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Hydrate;

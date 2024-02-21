@@ -11,7 +11,9 @@ import SwiftUI
 struct HydrateApp: App {
     var body: some Scene {
         WindowGroup {
-           weightIn()
+            weightIn()
+//            Cups_view(resultCups: 5, drunkCups: [])
+            
         }
     }
 }

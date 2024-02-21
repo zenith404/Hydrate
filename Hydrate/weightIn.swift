@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct weightIn: View {
+    @AppStorage("userWeight") private var userWeight: Double = 0.0
     @State private var weight: String = ""
     @State private var liters: String = "0.0"
     
@@ -76,7 +77,7 @@ struct weightIn: View {
 //                    
 //            }
            
-            NavigationLink(destination: Onboarding_2(resultLiters: calculateLiters(), resultCups: calculateCups())) {
+            NavigationLink(destination: Onboarding2(resultLiters: calculateLiters(), resultCups: calculateCups())) {
                    Text("Calculate")
                 .font(Font.custom("SF Pro", size: 17))
                 .foregroundColor(weight.isEmpty ? Color(.gray) : .white)
@@ -109,8 +110,9 @@ struct weightIn: View {
       func calculateCups() -> String {
           // Convert liters to Double and calculate cups
           if let litersValue = Double(liters) {
-              let cups = litersValue * 0.24
-              return String(format: "%.2f", cups) // Convert cups to string
+              let cups = litersValue / 0.24
+              let litersValue = cups * 0.24
+              return String(format: "%2.f", cups) // Convert cups to string
           } else {
               return "0" // Default value if liters cannot be parsed
           }

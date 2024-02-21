@@ -8,20 +8,17 @@
 import SwiftUI
 import UserNotifications
 
-struct Onboarding_3: View {
+struct Onboarding3: View {
+    @AppStorage("userWeight") private var userWeight: Double = 0.0
     @State private var selectedTime = Date()
     @State private var time: Date = Date()
     @State private var notificationStartTime = Date()
     @State private var notificationEndTime = Date()
     @State private var notificationIntervalHours: Int = 1 // Hours
     @State private var notificationCount = 3
-
-    
-    
-   
+    @State private var navigationActive = false
     
     var body: some View {
-        
         VStack(alignment:.leading){
             Text("Notification Preferences")
                 .font(.title2)
@@ -37,7 +34,6 @@ struct Onboarding_3: View {
                 .font(.system(size: 13))
                 .foregroundColor(.gray)
                 .padding(.horizontal)
-//            Spacer().frame(height:50)
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 358, height: 44)
@@ -48,16 +44,9 @@ struct Onboarding_3: View {
                         .font(Font.custom("SF Pro", size: 17))
                         .foregroundColor(.black)
                         .padding(.leading)
-//                    Spacer()
                     DatePicker("Select Time", selection: $notificationStartTime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
-//                        .padding()
-//                    
                     Spacer()
-                    
-                   
-                            
-                        
                 }
             }
             .padding()
@@ -72,21 +61,14 @@ struct Onboarding_3: View {
                         .font(Font.custom("SF Pro", size: 17))
                         .foregroundColor(.black)
                         .padding(.leading)
-//                    Spacer()
                     DatePicker("Select Time", selection: $notificationEndTime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
-//                        .padding()
-//
                     Spacer()
-                    
-                   
-                            
-                        
                 }
             }
             .padding()
             
-            Spacer()/*.frame(height:50)*/
+            Spacer()
             
             Text("Notification interval")
                 .font(.title3)
@@ -98,13 +80,11 @@ struct Onboarding_3: View {
                 .padding(.horizontal)
             
             NotiInterval()
-//
-            .padding()
+                .padding()
             
-//
             Spacer()
             
-            NavigationLink(destination: CupsView()) {
+            NavigationLink(destination: Track(userWeight: userWeight)) {
                 Button(action: {
                     scheduleNotifs(from: notificationStartTime, to: notificationEndTime, with: TimeInterval(notificationIntervalHours))
                 }) {
@@ -120,53 +100,49 @@ struct Onboarding_3: View {
                 }
                 .padding()
             }
-           
-
         }
     }
-    
-    
     
     func formattedTime(_ time: Date) -> String {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            return formatter.string(from: time)
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: time)
+    }
+    
+    func scheduleNotifs(from startDate: Date, to endDate: Date, with interval: TimeInterval) {
+        var curDate = startDate
+        var count = 0
+        while curDate.compare(endDate) != .orderedDescending {
+            scheduleNotif(at: curDate)
+            curDate = curDate.addingTimeInterval(interval)
+            count += 1
         }
+    }
+    
+    private func scheduleNotif(at date: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "Water Reminder"
+        content.body = " "
         
-        func scheduleNotifs(from startDate: Date, to endDate: Date, with interval: TimeInterval) {
-            var curDate = startDate
-            var count = 0
-            while curDate.compare(endDate) != .orderedDescending {
-                scheduleNotif(at: curDate)
-                curDate = curDate.addingTimeInterval(interval)
-                count += 1
-            }
-        }
+        let triggerTime = Calendar.current.dateComponents([.year, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerTime, repeats: false)
         
-        private func scheduleNotif(at date: Date) {
-            let content = UNMutableNotificationContent()
-            content.title = "Water Reminder"
-            content.body = " "
-
-            let triggerTime = Calendar.current.dateComponents([.year, .day, .hour, .minute, .second], from: date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerTime, repeats: false)
-
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-            let center = UNUserNotificationCenter.current()
-            center.add(request) { (error : Error?) in
-                if let theError = error {
-                    print(theError.localizedDescription)
-                }
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
             }
         }
     }
+}
 
-struct NotiInterval: View{
+struct NotiInterval: View {
     @State private var isTimePickerVisible = false
     @State private var selectedButtonIndex: Int?
- 
- let buttons = [("15", "Mins"), ("30", "Mins"), ("60", "Mins"), ("90", "Mins"), ("2", "Hours"), ("3", "Hours"), ("4", "Hours"), ("5", "Hours")]
+    
+    let buttons = [("15", "Mins"), ("30", "Mins"), ("60", "Mins"), ("90", "Mins"), ("2", "Hours"), ("3", "Hours"), ("4", "Hours"), ("5", "Hours")]
     
     var body: some View {
         VStack(spacing: 8) {
@@ -213,8 +189,10 @@ struct RectangleButton: View {
     }
 }
 
-
-
-#Preview {
-    Onboarding_3()
+#if DEBUG
+struct Onboarding3_Previews: PreviewProvider {
+    static var previews: some View {
+        Onboarding3()
+    }
 }
+#endif
